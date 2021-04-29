@@ -24,7 +24,7 @@ ENV PATH=${PATH}:${KAFKA_HOME}/bin
 
 COPY download-kafka.sh start-kafka.sh broker-list.sh create-topics.sh versions.sh /tmp/
 
-RUN apt-get update && apt-get install -y bash curl jq docker \
+RUN apt-get update && apt-get install -y bash curl jq docker net-tools \
  && chmod a+x /tmp/*.sh \
  && mv /tmp/start-kafka.sh /tmp/broker-list.sh /tmp/create-topics.sh /tmp/versions.sh /usr/bin \
  && sync && /tmp/download-kafka.sh \
